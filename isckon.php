@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+} else {
+    // Redirect to login page if user is not logged in
+    echo "<script> window.location = './index.php';</script>";
+    exit;
+}
+$page = 'about';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -9,6 +21,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/isckon.css">
+    <script src = './js/script.js'></script>
     <script src="https://kit.fontawesome.com/9490fec376.js" crossorigin="anonymous"></script>
     <title>Hare Krishna movement</title>
     <link rel="icon" type="image/x-icon" href="./favicon/8.png">
@@ -17,68 +30,9 @@
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="./logo/iskcon_logo.jpg" alt="logo"
-                    style="height:50px; width:50px; border-radius:50%; margin-right:20px;"></img></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            About Us
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="isckon.html">What Is Isckon?</a></li>
-                            <li><a class="dropdown-item" href="#">Founder Acharya</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="contact.html">Contact Us</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Links
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Event Calendar</a></li>
-                            <li><a class="dropdown-item" href="#">Learn About Srila Prabhupada</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
-                        </ul>
-                    </li>
-                    <!-- <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li> -->
-                </ul>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-btn">
-                        <a class="btn btn-outline-light" href="#">SignUp</a>
-                    </li>
-
-                    <li class="nav-btn">
-                        <a class="btn btn-outline-light" href="#">Login</a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+    <?php
+    include './navbar/navbar.php'
+    ?>
     <!-- main content -->
     <div class="d-flex justify-content-center">
         <h1>What is Isckon</h1>
