@@ -1,6 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 session_start();
-include "../database/connection.php";
+include "./database/connection.php";
 
 // Get form data
 $username = $_POST['usrname'];
@@ -14,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $stored_password = $row['password'];
+        $userId = $row['id'];
+        $email = $row['email'];
+
 
         if (password_verify($password, $stored_password)) {
             $userId = $row['id'];
@@ -29,14 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Set session
             $_SESSION['username'] = $username;
-            echo "<script>alert('Login successful!'); window.location = '../dashboard.php';</script>";
+            $_SESSION['email'] = $email;
+            $_SESSION['id'] = $userId;
+
+            echo "<script>alert('Login successful!'); window.location = 'dashboard.php';</script>";
             exit;
         } else {
-            echo "<script>alert('Invalid username or password. Please try again.'); window.location = './login.php';</script>";
+            echo "<script>alert('Invalid username or password. Please try again.'); window.location = 'login.php';</script>";
             exit;
         }
     } else {
-        echo "<script>alert('Email not found. Please register first.'); window.location = '../signup.php';</script>";
+        echo "<script>alert('Email not found. Please register first.'); window.location = 'signup.php';</script>";
         exit;
     }
 }

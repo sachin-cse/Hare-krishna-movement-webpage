@@ -88,34 +88,6 @@
     }
   }
 
-  /* toggle */
-
-/* Light Theme */
-body.light-theme {
-  /* Define your light theme styles here */
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-/* Dark Theme */
-body.dark-theme {
-  /* Define your dark theme styles here */
-  background-color: #333;
-  color: #f2f2f2;
-}
-
-body.dark-theme .card-text {
-  /* Define the text color for the dark theme */
-  color: #000;
-}
-
-body.dark-theme .card-title{
-  color: #000;
-}
-
-body.dark-theme .label{
-  color:#f2f2f2;
-}
 
 
   

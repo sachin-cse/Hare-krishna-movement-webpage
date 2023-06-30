@@ -1,4 +1,4 @@
-<?php include "../database/connection.php"; ?>
+<?php include "./database/connection.php"; ?>
 
 <?php
 
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        echo "<script>alert('Email already exists, please choose a new email'); window.location='../signup.php';</script>";
+        echo "<script>alert('Email already exists, please choose a new email'); window.location='signup.php';</script>";
     } else {
         // Email does not exist in the database, so the details will be stored in the database
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!(mysqli_query($conn, $sql))) {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         } else {
-            echo "<script>alert('You have successfully created a new user. Please login'); window.location = '../index.php';</script>";
+            echo "<script>alert('You have successfully created a new user. Please login'); window.location = 'index.php';</script>";
         }
     }
 }

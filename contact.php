@@ -2,9 +2,11 @@
 session_start();
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
+    $email = $_SESSION['email'];
+    $userId = $_SESSION['id'];
 } else {
     // Redirect to login page if user is not logged in
-    echo "<script> window.location = './index.php';</script>";
+    echo "<script> window.location = 'index.php';</script>";
     exit;
 }
 $page = 'contact';
@@ -20,6 +22,7 @@ $page = 'contact';
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/contact.css">
   <script src="https://kit.fontawesome.com/9490fec376.js" crossorigin="anonymous"></script>
@@ -32,13 +35,13 @@ $page = 'contact';
 
   <!-- navbar -->
   <?php
-    include './navbar/navbar.php'
+    include 'navbar.php'
   ?>
   <!-- contact page -->
   <section class="get_in_touch">
     <h1 class="title">Get in Touch</h1>
     <div class="container">
-      <form class="contact-form row" action='./php_file/submit.php' method='post'>
+      <form class="contact-form row" action='submit.php' method='post'>
 
         <div class="form-field col-lg-6">
           <input id="name" class="input-text" name="name" type="text" required>
@@ -68,6 +71,41 @@ $page = 'contact';
     </div>
   </section>
 
+  <!-- model -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileModalLabel">Profile Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Profile details form code here -->
+
+        <div class="form-group">
+          <label for="username">ID:</label>
+          <input type="text" class="form-control" id="username" value="<?php echo $userId; ?>" readonly>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" value="<?php echo $username; ?>" readonly>
+        </div>
+
+      <br>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" value="<?php echo $email; ?>" readonly>
+        </div>
+        <!-- Add more profile fields as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- footer part -->
   <footer class="bg-dark text-center text-white mt-5">
@@ -77,11 +115,11 @@ $page = 'contact';
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-            class="fa-brands fa-facebook"></i></a>
+        <!-- <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
+            class="fa-brands fa-facebook"></i></a> -->
 
         <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+        <!-- <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a> -->
 
         <!-- Google -->
         <!-- <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
@@ -89,13 +127,18 @@ $page = 'contact';
         ></a> -->
 
         <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="https://instagram.com/mandal_sachin12?igshid=MzNlNGNkZWQ4Mg==" role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- portfolio icon -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://sachin-cse.github.io/MyPortfolio/" role="button">
+        <i class="fas fa-user"></i>
+      </a>
 
         <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/sachin-mandal-2a894820a/" role="button"><i class="fab fa-linkedin-in"></i></a>
 
         <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/sachin-cse" role="button"><i class="fab fa-github"></i></a>
       </section>
 
       <section class="mb-4">
@@ -128,6 +171,7 @@ $page = 'contact';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

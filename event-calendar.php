@@ -9,7 +9,7 @@ if (isset($_SESSION['username'])) {
     echo "<script> window.location = 'index.php';</script>";
     exit;
 }
-$page = 'dashboard';
+$page = 'links';
 ?>
 
 
@@ -22,6 +22,7 @@ $page = 'dashboard';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/event.css">
     <script src="https://kit.fontawesome.com/9490fec376.js" crossorigin="anonymous"></script>
     <script src = './js/script.js'></script>
     <title>Hare Krishna movement</title>
@@ -37,86 +38,24 @@ $page = 'dashboard';
     include 'navbar.php';
     ?>
 
-<!-- carousel effect -->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="./carousel/5.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="./carousel/2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="./carousel/3.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
-
-<!-- content -->
-<h1>We are Isckon</h1>
-<div class="card-group mb-5">
-  <div class="card">
-    <img src="./carousel/mayapur1.jpg" class="card-img-top" alt="bhaktiyoga">
-    <div class="card-body">
-      <h5 class="card-title">Bhaktiyoga</h5>
-      <p class="card-text">The path of bhakti-yoga is developed through a variety of activities</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./carousel/mayapur1.jpg" class="card-img-top" alt="chanting">
-    <div class="card-body">
-      <h5 class="card-title">Chanting</h5>
-      <p class="card-text">The Hare Krishna mantra is a chant meant for enhancing consciousness to the greatest possible degree.
-      </p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./carousel/mayapur1.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mayapur</h5>
-      <p class="card-text">Mayapur is one of the nine dhams of the holy islands, which look like petals of a lotus flowe</p>
-    </div>
-  </div>
-</div>
-
-<!-- model -->
-<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="profileModalLabel">Profile Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Profile details form code here -->
-
-        <div class="form-group">
-          <label for="username">ID:</label>
-          <input type="text" class="form-control" id="username" value="<?php echo $userId; ?>" readonly>
-        </div>
-
-        <br>
-
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" class="form-control" id="username" value="<?php echo $username; ?>" readonly>
-        </div>
-
-      <br>
-
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" value="<?php echo $email; ?>" readonly>
-        </div>
-        <!-- Add more profile fields as needed -->
+<!-- image center -->
+<section class="text-center my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Isckon Events</h2>
+        <div class="image-container">
+        <img src="./carousel/isckon_festival.jpg" alt="Image" class="img-fluid" style="width:1000px;">
+        <div class="image-text">Festival of India @ISCKON JAGANNATH RATH YATRA JUNE 20.</div>
       </div>
     </div>
   </div>
 </div>
+</section>
+<!-- image section end -->
 
 
 <!-- footer part -->
-
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
