@@ -55,6 +55,43 @@ $page = 'links';
 <!-- image section end -->
 
 
+<!-- model -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileModalLabel">Profile Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Profile details form code here -->
+
+        <div class="form-group">
+          <label for="username">ID:</label>
+          <input type="text" class="form-control" id="username" value="<?php echo $userId; ?>" readonly>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" value="<?php echo $username; ?>" readonly>
+        </div>
+
+      <br>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" value="<?php echo $email; ?>" readonly>
+        </div>
+        <!-- Add more profile fields as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- footer part -->
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
